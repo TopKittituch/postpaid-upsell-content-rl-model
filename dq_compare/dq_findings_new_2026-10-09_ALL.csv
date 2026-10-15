@@ -1,0 +1,76 @@
+severity,model,table_key,check,column_name,message
+FAIL,postpaid,J_POST_CONTENT__PACKAGE_MAPPING,join match,,0 of 24 keys match (Postpaid NBO content offering_cd exists in the postpaid package mapping (00_package_mapping))
+FAIL,postpaid,J_POST_PROFILE__REDEEM,join match,,"0 of 11,281,663 keys match (Share of postpaid base with point redemptions on the resolved day (01))"
+FAIL,postpaid,POST_APP_USAGE_FEAT,lookback window complete,,"1 of 15 partitions present; missing: 2026-10-06, 2026-10-05, 2026-10-04, 2026-10-03, 2026-10-02, 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-27, 2026-09-26, 2026-09-25, 2026-09-24, 2026-09-23"
+FAIL,postpaid,POST_CUST_PROMO,exact-date partition missing,,2026-10-03 is read by a pipeline exact-date rule but the partition is missing
+FAIL,postpaid,POST_ENGAGEMENT,key missing,crm_sub_id,100.0% of rows in filter 'charge_type' have no crm_sub_id
+FAIL,postpaid,POST_ENGAGEMENT,key missing,promotion_code,100.0% of rows in filter 'charge_type' have no promotion_code
+FAIL,postpaid,POST_ENGAGEMENT,rows after pipeline filter,keys_present,filter 'keys_present' keeps 0 of 593 rows: current_asset_charge_type = 'postpaid' AND crm_sub_id IS NOT NULL AND access_method_num IS NOT NULL AND current_asset_register_date IS NOT NULL
+FAIL,postpaid,POST_ENGAGEMENT,rows after pipeline filter,usable,filter 'usable' keeps 0 of 593 rows: current_asset_charge_type = 'postpaid' AND crm_sub_id IS NOT NULL AND access_method_num IS NOT NULL AND current_asset_register_date IS NOT NULL AND promotion_code IS NOT NULL AND (try_cast(num_view AS DOUBLE) > 0 OR try_cast(num_purchase AS DOUBLE) > 0 OR try_cast(num_click AS DOUBLE) > 0)
+FAIL,postpaid,POST_ENGAGEMENT,used column all NULL,crm_sub_id,all 593 rows are NULL
+FAIL,postpaid,POST_ENGAGEMENT,used column all NULL,promotion_code,all 593 rows are NULL
+FAIL,postpaid,POST_MAIN_PRODUCT_PROFILE,rows in partition,,the resolved partition is empty
+FAIL,postpaid,POST_PACKAGE_MAPPING,rows in partition,,the resolved partition is empty
+FAIL,postpaid,POST_REDEEM,lookback window complete,,"3 of 32 partitions present; missing: 2026-10-03, 2026-10-02, 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-27, 2026-09-26, 2026-09-25, 2026-09-24, 2026-09-23, 2026-09-22, 2026-09-21, 2026-09-20, 2026-09-19, 2026-09-18, 2026-09-17, 2026-09-16, 2026-09-15, 2026-09-14, 2026-09-13, 2026-09-12, 2026-09-11, 2026-09-10, 2026-09-09, 2026-09-08, 2026-09-07, 2026-09-06, 2026-09-05"
+FAIL,postpaid,POST_REDEEM,rows after pipeline filter,redeem,"filter 'redeem' keeps 0 of 93,274 rows: aunjai_flag = 'REDEEM' AND project_subtype RLIKE '^REDEEM' AND try_cast(project_type_id AS INT) IN (6, 4) AND try_cast(msg_event_id AS INT) IN (13, 169) AND points IS NOT NULL AND mobile_no IS NOT NULL AND register_date IS NOT NULL"
+FAIL,postpaid,POST_REDEEM,filter values,aunjai_flag,no rows have any of ['REDEEM']
+FAIL,prepaid,J_PRE_CONTENT__PACKAGE_MAPPING,join match,,0 of 13 keys match (Prepaid NBO content offering_cd exists in the prepaid package mapping (00_package_mapping))
+FAIL,prepaid,J_PRE_NBO_DV_PROMO__ONTOP,join match,,0 of 264 keys match (NBO data/voice recom_addon_best2_promotion_code found in the on-top master (06))
+FAIL,prepaid,PRE_ACTIVATION,lookback window complete,,"3 of 92 partitions present; missing: 2026-10-04, 2026-10-03, 2026-10-02, 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-27, 2026-09-26, 2026-09-25, 2026-09-24, 2026-09-23, 2026-09-22, 2026-09-21, 2026-09-20, 2026-09-19, 2026-09-18, 2026-09-17, 2026-09-16, 2026-09-15, 2026-09-14, 2026-09-13, 2026-09-12, 2026-09-11, 2026-09-10, 2026-09-09, 2026-09-08, 2026-09-07, 2026-09-06, 2026-09-05, 2026-09-04, 2026-09-03, 2026-09-02, 2026-09-01, 2026-08-31, 2026-08-30, 2026-08-29, 2026-08-28, 2026-08-27, 2026-08-26, 2026-08-25, 2026-08-24, 2026-08-23, 2026-08-22, 2026-08-21, 2026-08-20, 2026-08-19, 2026-08-18, 2026-08-17, 2026-08-16, 2026-08-15, 2026-08-14, 2026-08-13, 2026-08-12, 2026-08-11, 2026-08-10, 2026-08-09, 2026-08-08, 2026-08-07, 2026-08-06"
+FAIL,prepaid,PRE_APP_USAGE,lookback window complete,,"1 of 3 partitions present; missing: 2026-08, 2026-07"
+FAIL,prepaid,PRE_ENGAGEMENT,lookback window complete,,"1 of 14 partitions present; missing: 2026-10-08, 2026-10-07, 2026-10-06, 2026-10-05, 2026-10-04, 2026-10-03, 2026-10-02, 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-27, 2026-09-26"
+FAIL,prepaid,PRE_ENGAGEMENT,key missing,crm_sub_id,100.0% of rows in filter 'charge_type' have no crm_sub_id
+FAIL,prepaid,PRE_ENGAGEMENT,key missing,promotion_code,100.0% of rows in filter 'charge_type' have no promotion_code
+FAIL,prepaid,PRE_ENGAGEMENT,rows after pipeline filter,keys_present,filter 'keys_present' keeps 0 of 516 rows: current_asset_charge_type = 'prepaid' AND crm_sub_id IS NOT NULL AND access_method_num IS NOT NULL AND current_asset_register_date IS NOT NULL
+FAIL,prepaid,PRE_ENGAGEMENT,rows after pipeline filter,usable,filter 'usable' keeps 0 of 516 rows: current_asset_charge_type = 'prepaid' AND crm_sub_id IS NOT NULL AND access_method_num IS NOT NULL AND current_asset_register_date IS NOT NULL AND promotion_code IS NOT NULL AND (try_cast(num_view AS DOUBLE) > 0 OR try_cast(num_purchase AS DOUBLE) > 0 OR try_cast(num_click AS DOUBLE) > 0)
+FAIL,prepaid,PRE_ENGAGEMENT,used column all NULL,crm_sub_id,all 516 rows are NULL
+FAIL,prepaid,PRE_ENGAGEMENT,used column all NULL,promotion_code,all 516 rows are NULL
+FAIL,prepaid,PRE_ONTOP_MASTER,lookback window complete,,"2 of 92 partitions present; missing: 2026-10-07, 2026-10-06, 2026-10-05, 2026-10-04, 2026-10-03, 2026-10-02, 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-27, 2026-09-26, 2026-09-25, 2026-09-24, 2026-09-23, 2026-09-22, 2026-09-21, 2026-09-20, 2026-09-19, 2026-09-18, 2026-09-17, 2026-09-16, 2026-09-15, 2026-09-14, 2026-09-13, 2026-09-12, 2026-09-11, 2026-09-10, 2026-09-09, 2026-09-08, 2026-09-07, 2026-09-06, 2026-09-05, 2026-09-04, 2026-09-03, 2026-09-02, 2026-09-01, 2026-08-31, 2026-08-30, 2026-08-29, 2026-08-28, 2026-08-27, 2026-08-26, 2026-08-25, 2026-08-24, 2026-08-23, 2026-08-22, 2026-08-21, 2026-08-20, 2026-08-19, 2026-08-18, 2026-08-17, 2026-08-16, 2026-08-15, 2026-08-14, 2026-08-13, 2026-08-12, 2026-08-11, 2026-08-10, 2026-08-09"
+FAIL,prepaid,PRE_TOPUP,lookback window complete,,"1 of 3 partitions present; missing: 2026-08, 2026-07"
+FAIL,shared,CONTENT,key missing,mapping_product_code,94.8% of rows in filter 'prepaid' have no mapping_product_code
+FAIL,shared,CONTENT,key missing,mapping_product_code,100.0% of rows in filter 'prepaid_nbo' have no mapping_product_code
+FAIL,shared,CONTENT,key missing,mapping_product_code,87.7% of rows in filter 'postpaid' have no mapping_product_code
+FAIL,shared,CONTENT,key missing,mapping_product_code,100.0% of rows in filter 'postpaid_nbo' have no mapping_product_code
+WARN,postpaid,J_POST_ENG_AMN_REGDATE__PROFILE,join input,,left side has no keys
+WARN,postpaid,J_POST_ENG_AMN__PROFILE,join match,,only 8.9% of 112 keys match (expected >= 80.0%)
+WARN,postpaid,J_POST_ENG_CRM__PROFILE,join input,,left side has no keys
+WARN,postpaid,J_POST_ENG_PROMO__CONTENT,join input,,left side has no keys
+WARN,postpaid,J_POST_MAIN_PRODUCT__OFFERING,join input,,left side has no keys
+WARN,postpaid,J_POST_PROFILE_PKG__OFFERING,join key missing,,7.2% of left rows have an empty key
+WARN,postpaid,POST_CG,SLA,,"LATE: partition 2026-09-29; DAILY normal 2D needs >= 2026-10-07 00:00, critical 2M needs >= 2026-08-09 00:00"
+WARN,postpaid,POST_JOURNEY,duplicate keys,access_method_num+register_date,205 duplicated keys within filter postpaid
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,mass_flag,"1,072 rows hold the text 'null'/'none'/'nan'"
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,mm_types,754 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,mm_data_type,"1,209 rows hold the text 'null'/'none'/'nan'"
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,mm_data_speed,703 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,data_quota,"1,669 rows hold the text 'null'/'none'/'nan'"
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,duration,692 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,recurring,165 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_ONTOP_MASTER,text 'null' values,cmm_flag_ontop,636 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_PRODUCT_OFFERING,key whitespace,offering_cd,1 values have leading/trailing spaces
+WARN,postpaid,POST_PRODUCT_OFFERING,text 'null' values,offering_title,1 rows hold the text 'null'/'none'/'nan'
+WARN,postpaid,POST_PROFILE,key missing,current_package_id,7.2% of rows in filter 'postpaid_3g_r' have no current_package_id
+WARN,postpaid,POST_REDEEM,SLA,,"LATE: partition 2026-10-06; DAILY normal 2D needs >= 2026-10-07 00:00, critical 2M needs >= 2026-08-09 00:00"
+WARN,prepaid,J_PRE_ENG_AMN_REGDATE__PROFILE,join input,,left side has no keys
+WARN,prepaid,J_PRE_ENG_CRM__PROFILE,join input,,left side has no keys
+WARN,prepaid,J_PRE_ENG_PROMO__CONTENT,join input,,left side has no keys
+WARN,prepaid,J_PRE_ENG_PROMO__CPC,join input,,left side has no keys
+WARN,prepaid,PRE_CG,SLA,,"LATE: partition 2026-09-29; DAILY normal 2D needs >= 2026-10-07 00:00, critical 2M needs >= 2026-08-09 00:00"
+WARN,prepaid,PRE_CPC_MAPPING,duplicate keys,offering_cd,144 duplicated keys within filter has_popid
+WARN,prepaid,PRE_CPC_MAPPING,key whitespace,offering_cd,1 values have leading/trailing spaces
+WARN,prepaid,PRE_CPC_MAPPING,text 'null' values,offering_cd,1 rows hold the text 'null'/'none'/'nan'
+WARN,prepaid,PRE_PERSONA,SLA,,"LATE: partition 2026-08; MONTHLY normal 43D needs >= 2026-08-27 00:00, critical 3M needs >= 2026-07-09 00:00"
+WARN,prepaid,PRE_PROFILE,text 'null' values,promotion_group_tariff,"2,435 rows hold the text 'null'/'none'/'nan'"
+INFO,postpaid,POST_JOURNEY,used column mostly NULL,moc_cust_type,65.5% NULL
+INFO,postpaid,POST_JOURNEY,used column mostly NULL,remain_contract_duration,89.7% NULL
+INFO,postpaid,POST_JOURNEY,used column mostly NULL,contract_lock_duration,89.7% NULL
+INFO,postpaid,POST_PRODUCT_OFFERING,used column mostly NULL,offering_package_type_cd,59.7% NULL
+INFO,postpaid,POST_PRODUCT_RULE,used column mostly NULL,rule_end_dt,98.5% NULL
+INFO,prepaid,J_PRE_CONTENT__CPC_POPID,join match,,"0 of 1,192 keys match (Prepaid content offering_cd is already a POPID (offering_price_id))"
+INFO,prepaid,PRE_ARPU,used column mostly NULL,product_type,99.1% NULL
+INFO,prepaid,PRE_CPC_MAPPING,used column mostly NULL,offering_price_id,90.6% NULL
+INFO,prepaid,PRE_NBO_DATA_VOICE,used column mostly NULL,use_case_control_group_name,96.2% NULL
+INFO,shared,CONTENT,used column mostly NULL,package_type,67.1% NULL
+INFO,shared,CONTENT,used column mostly NULL,nbo_recurring,95.0% NULL
+INFO,shared,CONTENT,used column mostly NULL,content_type,55.6% NULL
+INFO,shared,CONTENT,used column mostly NULL,content_partner,51.0% NULL
